@@ -9,7 +9,6 @@ def test_practice_form(browser_set):
     with allure.step("Открытие формы регистрации"):
         practice_form_page = PracticeFormPage()
         practice_form_page.open()
-        practice_form_page.clean_from_ads()
 
     with allure.step("Заполнение полного имени"):
         practice_form_page.fill_first_name("Andrei")
