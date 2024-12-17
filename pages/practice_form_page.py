@@ -55,6 +55,7 @@ class PracticeFormPage:
 
     def upload_picture(self, value):
         browser.element('#uploadPicture').set_value(resources.path(value))
+        browser.perform(command.Keys.PAGE_DOWN)
 
     def choose_state(self, value):
         browser.element('[id="state"]').click()
@@ -67,7 +68,7 @@ class PracticeFormPage:
 
     def fill_address(self, value):
         self.address.type(value)
-        browser.perform(command.Keys.PAGE_DOWN)
+
 
     def submit_button(self):
         browser.element('[id="submit"]').click()
