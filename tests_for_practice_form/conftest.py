@@ -2,19 +2,17 @@ import os
 
 import pytest
 from dotenv import load_dotenv
+from future.backports.email.policy import default
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from utils import attach
 
 
-DEFAULT_BROWSER_VERSION = "100.0"
 
 def pytest_addoption(parser):
-    parser.addoption(
-        '--browser_version',
-        default='100.0'
-    )
+    parser.addoption('--browser_version')
+    parser.addoption('--browser_type')
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
@@ -23,10 +21,10 @@ def load_env():
 @pytest.fixture(scope="function")
 def browser_set(request):
     browser_version = request.config.getoption('--browser_version')
-    browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
+    browser_type = request.config.getoption('--browser_type')
     options = Options()
     selenoid_capabilities = {
-        "browserName": "chrome",
+        "browserName": browser_type,
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
