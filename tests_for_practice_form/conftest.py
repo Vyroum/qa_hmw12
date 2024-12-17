@@ -30,7 +30,8 @@ def browser_set(request):
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": True,
+            "setSize": (1280, 1024)
         }
     }
     login = os.getenv('LOGIN')
