@@ -2,7 +2,6 @@ import os
 
 import pytest
 from dotenv import load_dotenv
-from future.backports.email.policy import default
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
