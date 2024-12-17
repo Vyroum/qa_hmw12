@@ -1,5 +1,4 @@
 from selene import browser, by, have
-from selenium.webdriver import Keys
 from data_sources import resources
 
 
@@ -14,7 +13,6 @@ class PracticeFormPage:
 
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
-        browser.driver.maximize_window()
         browser.driver.execute_script("$('#fixedban').remove()")
         browser.driver.execute_script("$('footer').remove()")
 

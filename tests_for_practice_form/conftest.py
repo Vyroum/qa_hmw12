@@ -35,6 +35,7 @@ def browser_set(request):
     }
     login = os.getenv('LOGIN')
     password = os.getenv('PASSWORD')
+    options.page_load_strategy = 'eager'
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
