@@ -1,4 +1,5 @@
-from selene import browser, by, have, command
+from selene import browser, by, have
+from selenium.webdriver import Keys
 from data_sources import resources
 
 
@@ -55,7 +56,7 @@ class PracticeFormPage:
 
     def upload_picture(self, value):
         browser.element('#uploadPicture').set_value(resources.path(value))
-        browser.perform(command.Keys.PAGE_DOWN)
+
 
     def choose_state(self, value):
         browser.element('[id="state"]').click()
@@ -67,7 +68,7 @@ class PracticeFormPage:
         browser.element(by.text(value)).click()
 
     def fill_address(self, value):
-        self.address.type(value)
+        self.address.type(value).press_tab().press(Keys.PAGE_DOWN)
 
 
     def submit_button(self):
