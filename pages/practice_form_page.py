@@ -57,11 +57,11 @@ class PracticeFormPage:
         browser.element('#uploadPicture').set_value(resources.path(value))
 
     def choose_state(self, value):
-        browser.element('[id="state"]').click()
+        browser.element('[id="state"]').perform(command.js.scroll_into_view).click()
         browser.element(by.text(value)).click()
 
     def choose_city(self, value):
-        browser.element('[id="city"]').click()
+        browser.element('[id="city"]').perform(command.js.scroll_into_view).click()
         browser.element(by.text(value)).click()
 
     def fill_address(self, value):
