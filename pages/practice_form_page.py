@@ -1,5 +1,6 @@
 from selene import browser, by, have
 from data_sources import resources
+from selenium.webdriver import Keys
 
 
 class PracticeFormPage:
@@ -68,7 +69,7 @@ class PracticeFormPage:
         browser.element(by.text(value)).click()
 
     def fill_address(self, value):
-        self.address.type(value)
+        self.address.type(value).press_tab().press(Keys.PAGE_DOWN)
 
 
     def submit_button(self):
