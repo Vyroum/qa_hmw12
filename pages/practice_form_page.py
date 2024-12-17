@@ -59,7 +59,7 @@ class PracticeFormPage:
     def choose_state(self, value):
         browser.element('[id="state"]').click()
         browser.element(by.text(value)).click()
-        browser.perform(command.Keys.PAGE_DOWN)
+
 
     def choose_city(self, value):
         browser.element('[id="city"]').click()
@@ -67,6 +67,7 @@ class PracticeFormPage:
 
     def fill_address(self, value):
         self.address.type(value)
+        browser.perform(command.Keys.PAGE_DOWN)
 
     def submit_button(self):
         browser.element('[id="submit"]').click()
