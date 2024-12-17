@@ -14,8 +14,10 @@ class PracticeFormPage:
 
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
+        browser.driver.maximize_window()
         browser.driver.execute_script("$('#fixedban').remove()")
         browser.driver.execute_script("$('footer').remove()")
+
 
     def clean_from_ads(self):
         browser.driver.execute_script("$('#fixedban').remove()")
