@@ -1,3 +1,5 @@
+import time
+
 from selene import browser, by, have
 from data_sources import resources
 from selenium.webdriver import Keys
@@ -14,6 +16,7 @@ class PracticeFormPage:
 
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
+        time.sleep(3)
         browser.driver.execute_script("$('#fixedban').remove()")
         browser.driver.execute_script("$('footer').remove()")
 
