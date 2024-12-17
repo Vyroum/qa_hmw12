@@ -57,18 +57,19 @@ class PracticeFormPage:
         browser.element('#uploadPicture').set_value(resources.path(value))
 
     def choose_state(self, value):
-        browser.element('[id="state"]').perform(command.js.scroll_into_view).click()
+        browser.element('[id="state"]').click()
         browser.element(by.text(value)).click()
+        browser.perform(command.Keys.PAGE_DOWN)
 
     def choose_city(self, value):
-        browser.element('[id="city"]').perform(command.js.scroll_into_view).click()
+        browser.element('[id="city"]').click()
         browser.element(by.text(value)).click()
 
     def fill_address(self, value):
         self.address.type(value)
 
     def submit_button(self):
-        browser.element('[id="submit"]').perform(command.js.scroll_into_view).click()
+        browser.element('[id="submit"]').click()
 
     def should_registered_user_with(self, full_name, email, gender, user_number, birthdate, subjects, hobby, file, address, location):
 
