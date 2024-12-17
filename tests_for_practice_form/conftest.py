@@ -41,8 +41,7 @@ def browser_set(request):
         options=options)
 
     browser.config.driver = driver
-    browser.driver.execute_script("$('#fixedban').remove()")
-    browser.driver.execute_script("$('footer').remove()")
+
     yield browser
 
     attach.add_screenshot(browser)
