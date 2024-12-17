@@ -1,4 +1,4 @@
-from selene import browser, by, have
+from selene import browser, by, have, command
 from data_sources import resources
 
 
@@ -68,7 +68,7 @@ class PracticeFormPage:
         self.address.type(value)
 
     def submit_button(self):
-        browser.element('[id="submit"]').click()
+        browser.element('[id="submit"]').perform(command.js.scroll_into_view).click()
 
     def should_registered_user_with(self, full_name, email, gender, user_number, birthdate, subjects, hobby, file, address, location):
 
